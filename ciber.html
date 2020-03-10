@@ -8,6 +8,9 @@
 
 <p id="name"></p>
 <p id="sum"></p>
+<button onclick="generarNota()">Obtenir nota</button>
+<p id="nota"></p>
+<button onclick="corregirExamen()">Corregir examen</button>
 <body>
     <script>
         console.log("Hello world");
@@ -24,6 +27,31 @@
         n2=56;
         resultat=n1+n2;
         document.getElementById("sum").innerHTML="La suma entre "+n1+" i "+n2+" és "+resultat;
+
+        function generarNota(){
+            document.getElementById('nota').innerHTML = (Math.random() * 10).toFixed(2);
+        }
+
+        function corregirExamen(){
+            var nota_examen;
+            nota_examen=document.getElementById("nota").innerHTML;
+            if(nota_examen<5){
+                alert("Has tret un "+nota_examen+". Oh sento no has superat l'examen.")
+            }
+            else{
+                alert("Has tret un "+nota_examen+". Felicitats, has superat l'examen.")
+            }
+        }
+
+        var cadena="Tinc un cotxe de color blau";
+        cadena=cadena.replace("blau","verd");
+        console.log(cadena);
+
+        cadena=cadena.replace("o","u");
+        console.log(cadena);
+
+        
+
     
     </script>  
 </body>
