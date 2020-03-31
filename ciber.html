@@ -5,26 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciber</title>
 </head>
-
-<p id="name"></p>
-<p id="sum"></p>
 <body>
+    
+    
+    <p id="sum"></p>
+    <button onclick="generarNota()">Obtenir nota</button>
+    <p id="nota"></p>
+    <button onclick="corregirExamen()">Corregir examen</button>
+
     <script>
+    //Exercici 1 - mostrar per consola un 'Hola mundo'
         console.log("Hello world");
-    
+
+    //Exercici 2 - Crea un alert que mostri el teu nom.
         alert("My name is Mireia");
-    
+
+    //Exercici 3 - Crea una variable que contingui el teu nom i un altre que contingui el teu cognom.
         var name, surname;
         name = "Mireia";
         surname = "Recasens";
-        document.getElementById("name").innerHTML=name+" "+surname;
+        console.log(name+" "+surname);
 
+    //Exercici 4 - Crea dos variables amb dos números i fes una suma entre ells.
         var n1, n2;
         n1=34;
         n2=56;
         resultat=n1+n2;
         document.getElementById("sum").innerHTML="La suma entre "+n1+" i "+n2+" és "+resultat;
+
+    //Exercici 5 - Crea una variable nota_examen juntament amb un alert que ens digui si l’examen ha estat aprovat o no juntament amb la nota.
+        function generarNota(){
+            document.getElementById("nota").innerHTML = (Math.random() * 10).toFixed(2);
+        }
+
+        function corregirExamen(){
+            var nota_examen;
+            nota_examen=document.getElementById("nota").innerHTML;
+            if(nota_examen<5){
+                alert("Has tret un "+nota_examen+". Oh sento no has superat l'examen.")
+            }
+            else{
+                alert("Has tret un "+nota_examen+". Felicitats, has superat l'examen!")
+            }
+        }
+
+    //Exercici 6 - Reemplaça la paraula blau per la paraula verd a la següent cadena de text Tinc un cotxe de color blau. Després intenta fer-ho remplaçant les o per les u
+        var str="Tinc un cotxe de color blau";
+        str=str.replace("blau","verd");
+        console.log(str);
+
+        var str2="Tinc un cotxe de color blau";
+        str2=str2.replace(/o/g,'u');
+        console.log(str2);
+        
+    //també seria possible fer-ho així. No tan eficient.    
+        var str3="Tinc un cotxe de color blau".split("");
+        var newStr="";
+        for(var i=0; i<str3.length; i++){
+            if(str3[i]=="o"){
+            str3[i]="u";
+            }
+            newStr += str3[i];
+        }
+        console.log(newStr);
+
+    //Exercici 7 - Donat el seguit llistat d’objectes ‘taula’, ‘cadira’, ‘ordinador’, ‘llibreta’, per un bucle que mostri per pantalla cada objecte i la seva posició al llistat.
+        var objecte=["taula","cadira","ordinador","llibreta"]
+        var posicio="";
+        for(var i=0; i<objecte.length; i++){
+            posicio="L'objecte "+objecte[i]+" està a la posició "+objecte.indexOf(objecte[i])+".";
+            console.log(posicio);
+        }
     
+    //Exercici 8 - Crea una funció anomenada calculadora que tingui com a entrada els següents paràmetres: operador, valor1 i valor2. Estructura de la funció que faci sumes, restes i multiplicacions.
+        var operador="", valor1, valor2, result;
+        function calculadora(operador,valor1,valor2){
+            if(operador=="suma"){
+                return valor1+valor2;
+            }
+            else if(operador=="resta"){
+                return valor1-valor2;
+            }
+            else if(operador=="multiplicacio"){
+                return valor1*valor2;
+            }
+            else if(operador=="divisio"){
+                return valor1/valor2;
+            }   
+        }
+        result = calculadora('resta',40,20);
+        console.log(result);
     </script>  
 </body>
 </html>
